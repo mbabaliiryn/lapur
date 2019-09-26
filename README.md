@@ -14,4 +14,4 @@ python manage.py runserver
 
 # Documentation
 
-API Documentation is generated automatically at http://127.0.0.1:8000/api/docs/ using Django REST Swagg
+[API Documentation is generated automatically at](http://127.0.0.1:8000/api/docs/) using Django REST Swagg
