@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'phonenumber_field',
     'rest_framework_swagger',
+    'notify',
+    
 ]
 
 MIDDLEWARE = [

@@ -33,8 +33,10 @@ class FarmerGroupSerializer(serializers.ModelSerializer):
 
 
 
-
 class FarmerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Farmer
         fields = '__all__'
+
+
+

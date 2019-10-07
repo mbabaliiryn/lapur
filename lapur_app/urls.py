@@ -26,4 +26,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('farm.urls')),
     path('api/docs/', schema_view),
+    path('notifications/', include('notify.urls', 'notifications')),
 ]

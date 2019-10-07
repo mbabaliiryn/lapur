@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 from rest_framework import  viewsets, permissions
-from .models import  FarmUser, UserRole, FieldWorker, FarmerGroup, Farmer, Notification
-from .serializers import FarmUserSerializer, UserRoleSerializer, FieldWorkerSerializer, FarmerGroupSerializer, FarmerSerializer, NotificationSerializer
+from .models import  FarmUser, UserRole, FieldWorker, FarmerGroup, Farmer
+from .serializers import FarmUserSerializer, UserRoleSerializer, FieldWorkerSerializer, FarmerGroupSerializer, FarmerSerializer
 
 
 
@@ -55,11 +55,4 @@ class Meta:
  
 
 
-class NotificationViewSet(viewsets.ModelViewSet):
-
-    queryset = Notification.objects.all()
-    serializer_class = NotificationSerializer
-
-class Meta:
-    permissions = ["can only be viewed by the super user"]
  

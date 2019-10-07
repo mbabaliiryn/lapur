@@ -17,6 +17,7 @@ router.register('farmer', FarmerViewSet)
 
 
 
+
 urlpatterns = [
     path('', include(router.urls)),
     # path('Farm_User', FarmerViewSet.as_view({'get':'list'})),

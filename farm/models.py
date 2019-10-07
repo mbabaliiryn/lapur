@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+
 from phonenumber_field.modelfields import PhoneNumberField
+
 
 
 
@@ -29,7 +31,8 @@ class FarmUser(AbstractUser, TimestampedModel):
 
 
 
-   
+
+
 
 class UserRole(TimestampedModel):
     role_name = models.CharField(('name'), null=False, blank=False, max_length=50)
@@ -42,7 +45,8 @@ class UserRole(TimestampedModel):
 
 class FieldWorker(TimestampedModel):
     user_name = models.CharField(max_length=20, blank=False)
-    address = models.TextField(max_length=60 , null=True, blank=False)
+    address = models.TextField(max_length=60 , null=True, blank=False),
+    
 
     def __str__(self):
         return self.name
@@ -76,6 +80,12 @@ class Farmer(TimestampedModel):
 
     def __str__(self):
         return self.name
+
+
+
+
+    
+
 
 
 

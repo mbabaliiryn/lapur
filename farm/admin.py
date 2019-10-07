@@ -25,6 +25,7 @@ class FarmerAdmin(admin.ModelAdmin):
     pass
 
 
+
 admin.site.register(FarmUser, FarmUserAdmin)
 admin.site.register(UserRole, UserRoleAdmin)
 admin.site.register(FieldWorker, FieldWorkerAdmin)
