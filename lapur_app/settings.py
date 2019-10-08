@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'rest_framework_swagger',
     'notify',
+    'django_rq',
+    
     
 ]
 
@@ -136,5 +138,18 @@ REST_FRAMEWORK = {
      ),
    
    
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' 
+    'DEFAULT_SCHEMA_CLASS': ('rest_framework.schemas.coreapi.AutoSchema'
+     ),
+
+}
+
+AUTHENTICATION_BACKEND = (
+    'django.contrib.auth.backends.ModelBackend', 
+    'guardian.backends.ObjectPermissionBackend',
+)
+
+RQ_QUEUES = {
+    'default': {
+        'USE_REDIS_CACHE': 'default',
+    },
 }
