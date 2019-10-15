@@ -1,8 +1,11 @@
 from django.shortcuts import render
 
-from rest_framework import  viewsets, permissions
-from .models import  FarmUser, UserRole, FieldWorker, FarmerGroup, Farmer
-from .serializers import FarmUserSerializer, UserRoleSerializer, FieldWorkerSerializer, FarmerGroupSerializer, FarmerSerializer
+from rest_framework import  viewsets
+from .models import  FarmUser, UserRoles, Permissions, PermissionsRoles, Roles
+
+from .serializers import FarmUserSerializer, UserRolesSerializer, PermissionsSerializer, PermissionsRolesSerializer, RolesSerializer
+
+
 
 
 
@@ -13,46 +16,33 @@ class FarmUserViewSet(viewsets.ModelViewSet):
     queryset = FarmUser.objects.all()
     serializer_class = FarmUserSerializer
 
-class Meta:
-    permissions = ["only super user can delete "]
 
-    
-class UserRoleViewSet(viewsets.ModelViewSet):
+class UserRolesViewSet(viewsets.ModelViewSet):
 
-    queryset = UserRole.objects.all()
-    serializer_class = UserRoleSerializer
-
-class Meta:
-    permissions = ["user can only see permissions he/she has signedup to"]
-    
-
-
-class FieldWorkerViewSet(viewsets.ModelViewSet):
-
-    queryset = FieldWorker.objects.all()
-    serializer_class = FieldWorkerSerializer
-
-class Meta:
-
-    permissions = ["can signup", "can see all farmers","can create farmer groups"]
+    queryset = UserRoles.objects.all()
+    serializer_class = UserRolesSerializer
 
 
 
-class FarmerGroupViewSet(viewsets.ModelViewSet):
+class PermissionsViewSet(viewsets.ModelViewSet):
 
-    queryset = FarmerGroup.objects.all()
-    serializer_class = FarmerGroupSerializer
+    queryset = Permissions.objects.all()
+    serializer_class = PermissionsSerializer
+
+
+
+class PermissionsRolesViewSet(viewsets.ModelViewSet):
+
+    queryset = PermissionsRoles.objects.all()
+    serializer_class = PermissionsRolesSerializer
 
     
 
-class FarmerViewSet(viewsets.ModelViewSet):
+class RolesViewSet(viewsets.ModelViewSet):
 
-    queryset = Farmer.objects.all()
-    serializer_class = FarmerSerializer
+    queryset = Roles.objects.all()
+    serializer_class = RolesSerializer
 
-class Meta:
-    permissions = ["can signup"]
- 
 
 
  

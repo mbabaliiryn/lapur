@@ -1,6 +1,8 @@
 
 from django.contrib import admin
-from .models import  FarmUser, UserRole, FieldWorker, FarmerGroup, Farmer
+from .models import  FarmUser, UserRoles, Permissions, PermissionsRoles, Roles
+
+
 
 
 
@@ -9,26 +11,33 @@ class FarmUserAdmin(admin.ModelAdmin):
 
 
 
-class UserRoleAdmin(admin.ModelAdmin):
+class RolesAdmin(admin.ModelAdmin):
     pass
 
 
-class FieldWorkerAdmin(admin.ModelAdmin):
+class PermissionsAdmin(admin.ModelAdmin):
     pass
 
 
-class FarmerGroupAdmin(admin.ModelAdmin):
+class PermissionsRolesAdmin(admin.ModelAdmin):
     pass
 
 
-class FarmerAdmin(admin.ModelAdmin):
+
+
+
+class UserRolesAdmin(admin.ModelAdmin):
     pass
 
 
 
 admin.site.register(FarmUser, FarmUserAdmin)
-admin.site.register(UserRole, UserRoleAdmin)
-admin.site.register(FieldWorker, FieldWorkerAdmin)
-admin.site.register(FarmerGroup, FarmerGroupAdmin)
-admin.site.register(Farmer, FarmerAdmin)
+admin.site.register(Roles, RolesAdmin)
+admin.site.register(Permissions, PermissionsAdmin)
+admin.site.register(PermissionsRoles, PermissionsRolesAdmin)
+admin.site.register(UserRoles, UserRolesAdmin)
+
+
+
+
 

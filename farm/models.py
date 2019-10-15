@@ -1,100 +1,38 @@
 from django.db import models
+import datetime
 from django.contrib.auth.models import AbstractUser
 
-from phonenumber_field.modelfields import PhoneNumberField
+class FarmUser(AbstractUser):
+    user_name = models.CharField(max_length=30, null=True, blank=False)
+    password = models.CharField(max_length=512, null=True, blank=False)
+    name = models.CharField(max_length=30, null=True, blank=False)
+    email = models.CharField(max_length=3, null=True, blank=False)
+    created = models.DateTimeField(auto_now_add=False, editable=False, null=True, blank=False)
 
-
-
-
-
-class TimestampedModel(models.Model):
-    """A timestamp representing when this object was created."""
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    # A timestamp representing when this object was last updated.
-    updated_at = models.DateTimeField(auto_now=True)
-    deleted_at = models.DateTimeField(null=True)
-
-
-
-
-class FarmUser(AbstractUser, TimestampedModel):
-    USER_TYPE_CHOICES = (
+class Roles(models.Model):
+    name = models.CharField(max_length=60, null=True, blank=False)
+    description = models.TextField(max_length=30, null=True, blank=False)
+    ROLE_CHOICES = (
       (1, 'farmer'),
       (2, 'field_worker'),
       (3, 'ASO'),
       (4, 'credit officer'),
   )
 
-    user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, null=True)
-    via_search = models.BooleanField(default=False)
+    role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, null=True)
+
+
+class Permissions(models.Model):
+    name = models.CharField(max_length=200, null=True, blank=False)
+    description = models.TextField()
 
 
 
 
+class UserRoles(models.Model):
+    role = models.ForeignKey(Roles, on_delete = models.CASCADE)
 
+class PermissionsRoles(models.Model):
+    permission = models.ForeignKey(Permissions, on_delete = models.CASCADE)
+    role = models.ForeignKey(Roles, on_delete = models.CASCADE)
 
-class UserRole(TimestampedModel):
-    role_name = models.CharField(('name'), null=False, blank=False, max_length=50)
-
-    def __str__(self):
-        return self.name
-
-
-
-
-class FieldWorker(TimestampedModel):
-    user_name = models.CharField(max_length=20, blank=False)
-    address = models.TextField(max_length=60 , null=True, blank=False),
-    
-
-    def __str__(self):
-        return self.name
-
-
-
-class FarmerGroup(TimestampedModel):
-    name = models.CharField(('name'), null=False, blank=False, max_length=255)
-    farmer_group = models.ForeignKey(
-        'FarmerGroup', on_delete=models.CASCADE, parent_link=True)
-
-
-    def __str__(self):
-        return self.name
-
-
-
-class Farmer(TimestampedModel):
-    user_name = models.CharField(max_length=20, blank=False, null=True)
-    address = models.TextField(max_length=60,blank=False)
-    SEX_CHOICES = (
-        ('F', 'Female',),
-        ('M', 'Male',),
-    )
-    sex = models.CharField(
-        max_length=1,
-        choices=SEX_CHOICES,null=False, blank = False
-    )
-    phone_number = PhoneNumberField(
-        ('phone number'), null=False, blank=False, unique=True)
-
-    def __str__(self):
-        return self.name
-
-
-
-
-    
-
-
-
-
-    
-    
-
-    
-    
-
-  
-  
-    

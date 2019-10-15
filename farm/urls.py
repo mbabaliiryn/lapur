@@ -1,4 +1,6 @@
-from farm.views import FarmUserViewSet, UserRoleViewSet, FieldWorkerViewSet, FarmerGroupViewSet, FarmerViewSet
+
+from farm.views import FarmUserViewSet, UserRolesViewSet, PermissionsViewSet, PermissionsRolesViewSet, RolesViewSet
+
 
 from django.urls import include, path
 
@@ -10,11 +12,10 @@ router = routers.DefaultRouter()
 
 
 router.register('farm_user', FarmUserViewSet)
-router.register('user_role', UserRoleViewSet)
-router.register('field_worker', FieldWorkerViewSet)
-router.register('farmer_group', FarmerGroupViewSet)
-router.register('farmer', FarmerViewSet)
-
+router.register('user_roles', UserRolesViewSet)
+router.register('Permissions', PermissionsViewSet)
+router.register('permissions_roles', PermissionsRolesViewSet)
+router.register('roles', RolesViewSet)
 
 
 

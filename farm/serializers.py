@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
-from .models import FarmUser, UserRole, FieldWorker, FarmerGroup, Farmer
+from .models import FarmUser, UserRoles, Permissions ,PermissionsRoles, Roles
+
 
 
 
@@ -13,30 +14,37 @@ class FarmUserSerializer(serializers.ModelSerializer):
 
 
 
-class UserRoleSerializer(serializers.ModelSerializer):
+class UserRolesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = UserRole
+        model = UserRoles
         fields = '__all__'
 
 
-class FieldWorkerSerializer(serializers.ModelSerializer):
+class PermissionsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FieldWorker
-        fields = '__all__'
-
-
-
-class FarmerGroupSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = FarmerGroup
+        model = Permissions
         fields = '__all__'
 
 
 
-class FarmerSerializer(serializers.ModelSerializer):
+class PermissionsRolesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Farmer
+        model = PermissionsRoles
         fields = '__all__'
+
+
+
+class RolesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Roles
+        fields = '__all__'
+
+
+
+
+
+
+
 
 
 
