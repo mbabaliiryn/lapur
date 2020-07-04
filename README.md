@@ -4,13 +4,13 @@
 An application that helps beneficialies increase their agricultural needs
 
 # Installation
-run the following commands from project root (preferably in a virtualenv)
-pip install -r requirements.txt
-python manage.py migrate
+- run the following commands from project root (preferably in a virtualenv)
+- pip install -r requirements.txt
+- python manage.py migrate
 
 # Development
-run these command from project root
-python manage.py runserver
+- run these command from project root
+- python manage.py runserver
 
 # Documentation
 
